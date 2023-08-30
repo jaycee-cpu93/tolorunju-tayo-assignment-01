@@ -16,11 +16,17 @@ const assignment = {};
  */
 function sumOfNumbersTo(destination) {
     let sum = 0;
+    if (typeof destination !== 'number' || destination <= 1) {
+        return "Enter a valid number greater than 1.";
+    }
+    for (let initialValue = 1; initialValue <= destination; initialValue++) {
+        sum += initialValue;
+    }
     return sum
 }
 
 
-// assignment.sumOfNumbersTo = sumOfNumbersTo;
+assignment.sumOfNumbersTo = sumOfNumbersTo;
 
 /**
  * Challenge - 2
@@ -35,10 +41,19 @@ function sumOfNumbersTo(destination) {
 function countEvenNumbersWithin(destination) {
     // Write your code here
     // get the number from 1 to destination
+    if (typeof destination !== 'number' || destination <= 1) {
+        return "Enter a valid number greater than 1.";
+    }
     let sum = 0;
     let count = 0;
     let arrayOfEvenNumbers = [];
-
+    for (let i = 1; i <= destination; i++) {
+        if (i % 2 === 0) {
+            count++;
+            sum += i;
+            arrayOfEvenNumbers.push(i);
+        }
+        }
     return {
         // property value shorthand
         // when the property name and the value name are the same
@@ -49,7 +64,7 @@ function countEvenNumbersWithin(destination) {
     };
 }
 
-// assignment.countEvenNumbersWithin = countEvenNumbersWithin;
+assignment.countEvenNumbersWithin = countEvenNumbersWithin;
 
 /**
  * Challenge - 3
@@ -68,11 +83,15 @@ function countEvenNumbersWithin(destination) {
  */
 function celsiusToFahrenheit(arrayOfNumbers) {
     let result = [];
-
+    arrayOfNumbers.forEach(temperatureOfCelsius => {
+        const formulaOfFahrenheit = (temperatureOfCelsius * 9 / 5) + 32
+        const temperatureOfFahrenheit = Math.trunc(formulaOfFahrenheit);
+        result.push(temperatureOfFahrenheit);
+    });    
     return result;
 }
 
-// assignment.celsiusToFahrenheit = celsiusToFahrenheit;
+assignment.celsiusToFahrenheit = celsiusToFahrenheit;
 
 // ========================
 // DO NOT EDIT THIS BLOCK
